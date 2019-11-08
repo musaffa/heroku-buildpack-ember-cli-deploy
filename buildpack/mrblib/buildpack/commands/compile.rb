@@ -64,7 +64,7 @@ module Buildpack
             end
             release_yml = {
               "default_process_types" => {
-                "web" => "ember-fastboot #{tuple.output_dir} --serve-assets-from #{tuple.output_dir} --port $PORT"
+                "web" => "bin/start-nginx ember-fastboot #{tuple.output_dir} --serve-assets-from #{tuple.output_dir} --port '/tmp/nginx.socket'"
               }
             }
             FileUtilsSimple.mkdir_p("#{@build_dir}/tmp")
